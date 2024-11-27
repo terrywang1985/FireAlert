@@ -9,12 +9,12 @@ npm run serve
 
 
 rem 安装打包工具
-npm install @capacitor/core @capacitor/cli
+npm install -g @capacitor/core @capacitor/cli
 
 npx cap init
 
-npm install @capacitor/ios
-npm install @capacitor/android
+npm install -g @capacitor/ios
+npm install -g @capacitor/android
 
 
 npx cap add ios

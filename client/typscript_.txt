@@ -1,0 +1,1 @@
+npm install typescript @vue/cli-plugin-typescript --save-dev --legacy-peer-deps

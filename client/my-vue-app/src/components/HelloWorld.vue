@@ -9,14 +9,18 @@
 
 <script>
 
-import { client, CreateRoomRequest } from '../grpc/client';
+
+import { ChatServiceClient } from '../../ChatServiceClientPb';
+import { CreateRoomRequest } from '../../chat_pb';
+
 
 export default {
   name: "App",
   data() {
     return {
       message: "Vue 3 是强大的!",
-      roomName: "Vue 3 Room"
+      roomName: "Vue 3 Room",
+      client: new ChatServiceClient('http://localhost:8080')
     };
   },
   methods: {
@@ -27,8 +31,7 @@ export default {
       console.log("Create Room");
       const request = new CreateRoomRequest();
       request.setRoomName(this.roomName);
-
-      client.createRoom(request, {}, (err, response) => {
+      this.client.createRoom(request, {}, (err, response) => {
         if (err) {
           console.error(err);
         } else {
@@ -36,7 +39,6 @@ export default {
         }
       });
     }
-
   }
 };
 </script>
